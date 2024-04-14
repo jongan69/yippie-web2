@@ -15,8 +15,9 @@ export async function GET(request: Request) {
 
     // Calculate the price per token in USD
     const pricePerTokenInUsd = usdMarketCap / Number(supplyData);
-    const formattedPriceInUsd = pricePerTokenInUsd.toFixed(20); // Format the price to avoid scientific notation
+    const formattedPriceInUsd = pricePerTokenInUsd * (10**7) // Format the price to avoid scientific notation
 
+    console.log(`price of token: $${formattedPriceInUsd}`)
     // Return the formatted price in the response
     return NextResponse.json({ price: formattedPriceInUsd });
   } catch (error) {

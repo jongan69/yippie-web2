@@ -3,6 +3,7 @@ import Image from "next/image"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import logo from "../../public/icon.png";
+import DexScreenerEmbed from "@/components/chart";
 
 export default function IndexPage() {
   return (
@@ -12,7 +13,7 @@ export default function IndexPage() {
           Welcome <br className="hidden sm:inline" />
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          ITS TIME TO MEMEME
+          ITS TIME TO {siteConfig.name}
         </p>
       </div>
       <div className="flex gap-4" style={{ zIndex: 2 }}>
@@ -24,6 +25,7 @@ export default function IndexPage() {
         >
           Click for 10000x
         </Link>
+      
       </div>
       <div className="items-center justify-center">
         <Image
@@ -32,6 +34,7 @@ export default function IndexPage() {
           objectFit="contain"
           alt="hero" />
       </div>
+     
     </section>
   )
 }

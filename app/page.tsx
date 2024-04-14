@@ -10,6 +10,7 @@ import useDevice from '@/lib/hooks/useDevice';
 import { browserName } from 'react-device-detect';
 import { getCoinData } from "@/lib/getCoinData";
 import { getPriceData } from "@/lib/getPriceData";
+import DexScreenerEmbed from "@/components/chart";
 
 export default function IndexPage() {
   const [coindata, setCoinData] = useState()
@@ -63,9 +64,10 @@ export default function IndexPage() {
   }
 
   return (
-    <div 
-    className="mx-auto grid items-center justify-center gap-8 p-6"
+    <div
+      className="mx-auto grid items-center justify-center gap-8 p-6"
     >
+       {/* <DexScreenerEmbed/> */}
       <div className="flex w-full max-w-xs flex-col items-start gap-4 sm:max-w-xl md:max-w-4xl">
         <Banner price={price} />
         <Modal
@@ -75,9 +77,11 @@ export default function IndexPage() {
         >
           <h3>The App isnt ready but Feel free to continue</h3>
         </Modal>
+       
         <br />
         {!showModal && coindata && price && <Landing data={coindata} launch={launch} price={price} />}
       </div>
+     
       <audio id='a1'>
         <source src="/cantina.mp3" type='audio/mpeg' />
         Your browser does not support the audio element.
